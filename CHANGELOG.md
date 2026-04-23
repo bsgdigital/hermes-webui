@@ -14,6 +14,11 @@
   workspace subtree) and never enumerate blocked system roots. (`api/routes.py`,
   `api/workspace.py`, `static/panels.js`, `static/style.css`) (partial for #616)
 
+## [v0.50.166] — 2026-04-23
+
+### Fixed
+- **Code block stash regex handles attributes and multiline content** — renderMd() stash pass previously used `(<code>[^<]*<\/code>)` which failed on code tags with attributes and multi-line code blocks. Updated to `(<code\b[^>]*>[\s\S]*?<\/code>)` so fenced code blocks with language hints render correctly. (`static/ui.js`) Closes #890. Co-authored by @bergeouss.
+
 ## [v0.50.163] — 2026-04-23
 
 ### Fixed

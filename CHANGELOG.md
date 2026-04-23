@@ -14,6 +14,11 @@
   workspace subtree) and never enumerate blocked system roots. (`api/routes.py`,
   `api/workspace.py`, `static/panels.js`, `static/style.css`) (partial for #616)
 
+## [v0.50.169] — 2026-04-23
+
+### Added
+- **Live model fetching for OpenAI-compatible providers** — `/api/models/live` now falls back to a direct `/v1/models` fetch for providers that expose a standard OpenAI-compatible endpoint (ZAI, MiniMax, Mistral, xAI, DeepSeek, Gemini) when `hermes_cli.provider_model_ids()` returns empty. Static `_PROVIDER_MODELS` catalog is now a genuine last resort rather than the first fallback. (`api/routes.py`) Closes #871. Co-authored by @bergeouss.
+
 ## [v0.50.163] — 2026-04-23
 
 ### Fixed

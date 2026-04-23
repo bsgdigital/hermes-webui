@@ -14,6 +14,11 @@
   workspace subtree) and never enumerate blocked system roots. (`api/routes.py`,
   `api/workspace.py`, `static/panels.js`, `static/style.css`) (partial for #616)
 
+## [v0.50.168] — 2026-04-23
+
+### Fixed
+- **Session title fallback no longer contains hardcoded CJK literals** — the `_fallback_title_from_exchange()` and `_looks_invalid_generated_title()` heuristics in `api/streaming.py` contained Chinese-language strings and CJK Unicode detection that could leak non-English content into session titles regardless of UI language. All language-specific content replaced with English-only fallback logic; non-Latin input now returns `"Conversation topic"` as the placeholder. (`api/streaming.py`) Co-authored by @pavolbiely.
+
 ## [v0.50.163] — 2026-04-23
 
 ### Fixed

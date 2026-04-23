@@ -14,6 +14,11 @@
   workspace subtree) and never enumerate blocked system roots. (`api/routes.py`,
   `api/workspace.py`, `static/panels.js`, `static/style.css`) (partial for #616)
 
+## [v0.50.167] — 2026-04-23
+
+### Fixed
+- **Docker init installs all agent dependencies** — the Docker entrypoint previously installed only the `honcho` extra (`hermes-agent[honcho]`), leaving optional but commonly needed extras (cron, cli, pty, mcp, tts, etc.) absent. Changed to `hermes-agent[all]` so Docker deployments get a fully-featured agent out of the box. (`docker_init.bash`) Closes #896 Closes #628. Co-authored by @frap129.
+
 ## [v0.50.163] — 2026-04-23
 
 ### Fixed
